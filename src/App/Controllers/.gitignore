@@ -1,0 +1,3 @@
+# Ignore MySQL socket and data
+docker/storage/mysql/
+*.sock

@@ -22,10 +22,4 @@ CREATE TABLE IF NOT EXISTS invoices (
         ON UPDATE CASCADE 
 );
 
--- Insert at least one user first!
-INSERT INTO users (email, full_name, is_active, created_at)
-VALUES ('john@doe.com', 'John Doe', 1, NOW());
-
--- Now you can insert invoices
-INSERT INTO invoices (amount, user_id)
-VALUES (25, 1), (115.95, 1), (10500, 1);
+INSERT INTO invoices (amount, user_id) VALUES (25, 1), (115.95, 1), (10500, 1)

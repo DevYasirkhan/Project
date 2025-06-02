@@ -89,7 +89,7 @@ class HomeController
     // Transactions are used to make sure a group of operations either all succeed or all fail - ensuring database consistency
 
     // Env: instead of hardcoding credentials (e.g. DB user/pass), use environment variables to keep sensitive info safe like create .env file, use library, load .env in php file 
-
+ 
     try {
       $db = new PDO('mysql:host=' . $_ENV['DB_HOST'] . ';dbname=' . $_ENV['DB_DATABASE'], $_ENV['DB_USER'], $_ENV['DB_PASS']);
     } catch (\PDOException $e) {

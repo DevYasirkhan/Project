@@ -1,0 +1,7 @@
+# Ignore MySQL socket and data
+docker/storage/mysql
+*.sock
+node_modules/
+vendor/
+.vscode/
+.idea/

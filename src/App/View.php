@@ -13,6 +13,7 @@ class View
 
   public static function make(string $view, array $params = []): static
   {
+    var_dump($view, $params);
     return new static($view, $params);
   }
 

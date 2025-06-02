@@ -1,0 +1,25 @@
+-- docker/init.sql
+ 
+CREATE DATABASE IF NOT EXISTS my_db;
+ 
+USE my_db;
+ 
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  full_name VARCHAR(255) NOT NULL,
+  is_active BOOLEAN NOT NULL DEFAULT TRUE,
+  created_at DATETIME NOT NULL,
+  -- updated_at DATETIME NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS invoices (
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  amount DECIMAL(10,2),
+  user_id INT UNSIGNED,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE 
+);
+
+INSERT INTO invoices (amount, user_id) VALUES (25, 1), (115.95, 1), (10500, 1)

@@ -9,16 +9,16 @@ services:
     restart: always
     working_dir: /var/www/
     volumes:
-      - ../src:/var/www
+      - .:/var/www
 
   nginx:
     image: nginx:1.19-alpine
-    container_name: programwithgio-nginx
+    container_name: programwithgio-ngixn
     restart: always
     ports:
       - "8000:80"
     volumes:
-      - ../src:/var/www
+      - .:/var/www
       - ./nginx:/etc/nginx/conf.d
 
   db:
@@ -26,9 +26,10 @@ services:
     image: mysql:8.0
     volumes:
       - ./storage/mysql:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: Jhonvicky11111
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: my_db
     ports:
       - "3307:3306"

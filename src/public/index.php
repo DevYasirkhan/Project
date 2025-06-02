@@ -698,11 +698,14 @@ require_once __DIR__ . '/../vendor/autoload.php';
 // View: presentation (HTML/CSS output), displaying data to the user
 // Controller: Handling user input and updating Model & View accordingly, receiving a request and deciding what to do 
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
 use App\View;
 
-session_start(); // Initialize session data
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load();
+
+// session_start(); // Initialize session data
 
 define('STORAGE_PATH', __DIR__ . '/../storage');
 define('VIEW_PATH', __DIR__ . '/../views');
